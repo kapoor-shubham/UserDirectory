@@ -12,7 +12,7 @@ import Observation
 class UserDirectoryViewModel {
     
     private let apiclientProtocol: APIClientProtocol
-    var userData: [UserData] = []
+    var userData: UserDataModel = []
     
     init(apiclientProtocol: APIClientProtocol) {
         self.apiclientProtocol = apiclientProtocol
