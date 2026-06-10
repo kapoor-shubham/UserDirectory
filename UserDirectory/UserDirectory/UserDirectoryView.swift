@@ -16,15 +16,18 @@ struct UserDirectoryView: View {
         self.viewModel = viewModel
     }
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, content: {
+            Text("User Directory")
+                .padding([.leading, .top], 20)
+                .font(.system(size: 35, weight: .bold, design: .default))
+
             List {
                 ForEach(viewModel.userData) { user in
-                    VStack(alignment: .leading, content: {
-                        Text(user.name ?? "NIL")
-                    })
+                    UserDirectoryCell(userDetails: user)
                 }
             }
-        }
+        })
+        .background(Color(.systemGroupedBackground))
         .task {
             await viewModel.fetchUserDirectoryData()
         }
