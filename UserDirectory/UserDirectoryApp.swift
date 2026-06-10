@@ -25,7 +25,8 @@ struct UserDirectoryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let apiClientService = APIClient()
+            UserDirectoryView(viewModel: UserDirectoryViewModel(apiclientProtocol: apiClientService))
         }
         .modelContainer(sharedModelContainer)
     }
