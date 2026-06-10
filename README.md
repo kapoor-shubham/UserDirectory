@@ -1,4 +1,4 @@
-UserDirectory
+**UserDirectory**
 
 A simple User Directory application that fetches user data from https://jsonplaceholder.typicode.com/users, displays it in a list on the Home page, and navigates to a Detail page when a user taps/clicks on a list item.
 
