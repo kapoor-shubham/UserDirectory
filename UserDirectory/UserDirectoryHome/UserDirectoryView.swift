@@ -9,10 +9,10 @@ import SwiftUI
 
 struct UserDirectoryView: View {
     
-    @State private var selectedUser: UserData?
+    @State private var selectedUser: UserEntity?
     @State private var viewModel: UserDirectoryViewModel
     
-    init(selectedUser: UserData? = nil, viewModel: UserDirectoryViewModel) {
+    init(selectedUser: UserEntity? = nil, viewModel: UserDirectoryViewModel) {
         self.selectedUser = selectedUser
         self.viewModel = viewModel
     }
@@ -40,7 +40,7 @@ struct UserDirectoryView: View {
                 }
             }
             .task {
-                await viewModel.fetchUserDirectoryData()
+                await viewModel.loadFreshData()
             }
         }
     }

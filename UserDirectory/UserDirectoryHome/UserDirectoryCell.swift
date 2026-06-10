@@ -9,18 +9,18 @@ import SwiftUI
 
 struct UserDirectoryCell: View {
     
-    let user: UserData
+    let user: UserEntity
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label(user.name ?? "", systemImage: "person.circle.fill")
+            Label(user.name, systemImage: "person.circle.fill")
                 .font(.headline)
             
-            Label(user.email?.lowercased() ?? "", systemImage: "envelope.fill")
+            Label(user.email.lowercased(), systemImage: "envelope.fill")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             
-            Text(user.company?.name ?? "")
+            Text(user.companyName)
                 .font(.footnote)
                 .fontWeight(.medium)
                 .foregroundColor(.blue)
@@ -35,10 +35,7 @@ struct UserDirectoryCell: View {
 }
 
 #Preview {
-    let address = Address(street: "Kulas Light", suite: "Apt. 556", city: "Gwenborough", zipcode: "92998-3874", geo: .init(lat: "-37.3159", lng: "81.1496"))
-    let company = Company(name: "Romaguera-Crona", catchPhrase: "Multi-layered client-server neural-net", bs: "harness real-time e-markets")
-    let userData =
-        UserData(id: 1, name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: address, phone: "1-770-736-8031 x56442", website: "hildegard.org", company: company)
+    let userData = UserEntity(id: 1, name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", streetAddress: "Kulas Light", addressSuite: "Apt. 556", city: "Gwenborough", zipcode: "92998-3874", lat: "-37.3159", lng: "81.1496", phone: "1-770-736-8031 x56442", website: "hildegard.org", companyName: "Romaguera-Crona", companyCatchPhrase: "Multi-layered client-server neural-net", companyBS: "harness real-time e-markets")
     
     return UserDirectoryCell(user: userData)
 }

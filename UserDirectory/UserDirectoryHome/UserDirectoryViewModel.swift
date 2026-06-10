@@ -8,21 +8,28 @@
 import Foundation
 import Observation
 
+@MainActor
 @Observable
 class UserDirectoryViewModel {
     
-    private let apiclientProtocol: APIClientProtocol
-    var userData: UserDataModel = []
+    private let userRepoProtocol: UserRepositoryProtocol
     
-    init(apiclientProtocol: APIClientProtocol) {
-        self.apiclientProtocol = apiclientProtocol
+    var userData: [UserEntity] = []
+    
+    init(userRepoProtocol: UserRepositoryProtocol) {
+        self.userRepoProtocol = userRepoProtocol
     }
     
-    func fetchUserDirectoryData() async {
+    func loadFreshData() async {
         do {
-            userData = try await apiclientProtocol.fetchUserDicData()
+            try await userRepoProtocol.fetchAndStoreUsers()
+            try await fetchDataFromDB()
         } catch {
             print(error)
         }
+    }
+    
+    func fetchDataFromDB() async throws {
+        userData = try userRepoProtocol.getUsers()
     }
 }

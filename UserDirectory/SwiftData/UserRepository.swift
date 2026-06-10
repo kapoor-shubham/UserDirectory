@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class UserRepository {
+protocol UserRepositoryProtocol {
+    func fetchAndStoreUsers() async throws
+    func getUsers() throws -> [UserEntity]
+}
+
+final class UserRepository: UserRepositoryProtocol {
 
     private let storageManager: UserStorageManager
     private let apiClientProtocol: APIClientProtocol

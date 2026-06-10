@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserDetailView: View {
     
-    let userDetails: UserData
+    let userDetails: UserEntity
     
     var body: some View {
         VStack(spacing: 20) {
@@ -25,50 +25,50 @@ struct UserDetailView: View {
                     )
                     .frame(width: 100, height: 100)
                     .overlay(
-                        Text((userDetails.name ?? "").prefix(1))
+                        Text((userDetails.name).prefix(1))
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     )
 
-                Text(userDetails.name ?? "")
+                Text(userDetails.name)
                     .font(.title2)
                     .fontWeight(.bold)
 
-                Text("@\(userDetails.username ?? "")")
+                Text("@\(userDetails.username)")
                     .foregroundColor(.secondary)
             }
             .padding()
 
             // Contact Card
             InfoCardView(title: "Contact") {
-                Label(userDetails.email ?? "", systemImage: "envelope.fill")
-                Label(userDetails.phone ?? "", systemImage: "phone.fill")
-                Label(userDetails.website ?? "", systemImage: "globe")
+                Label(userDetails.email, systemImage: "envelope.fill")
+                Label(userDetails.phone, systemImage: "phone.fill")
+                Label(userDetails.website, systemImage: "globe")
             }
 
             // Address Card
             InfoCardView(title: "Address") {
                 Label(
-                    "\(userDetails.address?.street ?? ""), \(userDetails.address?.suite ?? "")",
+                    "\(userDetails.streetAddress), \(userDetails.addressSuite)",
                     systemImage: "location.fill"
                 )
 
-                Text("\(userDetails.address?.city ?? ""), \(userDetails.address?.zipcode ?? "")")
+                Text("\(userDetails.city), \(userDetails.zipcode)")
                     .foregroundColor(.secondary)
                     .padding(.leading, 28)
             }
 
             // Company Card
             InfoCardView(title: "Company") {
-                Text(userDetails.company?.name ?? "")
+                Text(userDetails.companyName)
                     .fontWeight(.semibold)
 
-                Text(userDetails.company?.catchPhrase ?? "")
+                Text(userDetails.companyCatchPhrase)
                     .italic()
                     .foregroundColor(.blue)
 
-                Text(userDetails.company?.bs ?? "")
+                Text(userDetails.companyBS)
                     .foregroundColor(.secondary)
             }
         }
