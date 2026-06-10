@@ -19,7 +19,8 @@ Clean and maintainable architecture
 API Used
 GET https://jsonplaceholder.typicode.com/users
 Application Flow
-Home Page
+
+***Home Page***
     |
     |-- Fetch Users API
     |
@@ -33,7 +34,8 @@ Home Page
                         |-- Show User Details
 
 
-Project Structure
+***Project Structure***
+
 UserDirectory/
 │
 ├── UserDirectory                (Main App Target)
@@ -50,7 +52,7 @@ UserDirectory/
 │
 └── Breakpoints_v2.xcbkptlist    (User-specific breakpoints)
 
-UserDirectoryView
+***Home Page***
 
 The UserDirectoryView performs the following actions:
 
@@ -63,7 +65,9 @@ Example list item:
 
 John Doe
 john@example.com
-Detail Page
+Company Name
+
+***Detail Page***
 
 When a user is selected from the Home page, the application navigates to the Detail page and displays:
 
