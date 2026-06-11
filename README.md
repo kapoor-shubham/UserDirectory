@@ -36,21 +36,32 @@ Application Flow
 
 ***Project Structure***
 
-UserDirectory/
+UserDirectory
 │
-├── UserDirectory                (Main App Target)
-│   └── App source files
+├── APIManager
+│   ├── APIClient.swift
+│   ├── APIEndPoints.swift
+│   └── MockAPIClientService.swift
 │
-├── UserDirectoryTests           (Unit Test Target)
-│   └── UserDirectoryTests.swift
+├── Model
+│   └── UserDataModel.swift
 │
-├── UserDirectoryUITests         (UI Test Target)
-│   ├── UserDirectoryUITests.swift
-│   └── UserDirectoryUITestsLaunchTests.swift
+├── SwiftData
+│   ├── UserEntity.swift
+│   ├── UserRepository.swift
+│   └── UserStorageManager.swift
 │
-├── project.pbxproj              (Xcode project configuration)
+├── UserDirectoryHome
+│   ├── UserDirectoryView.swift
+│   ├── UserDirectoryViewModel.swift
+│   ├── UserDirectoryCell.swift
+│   └── InfoCardView.swift
 │
-└── Breakpoints_v2.xcbkptlist    (User-specific breakpoints)
+├── UserDetail
+│   └── UserDetailView.swift
+│
+├── CustomError.swift
+└── UserDirectoryApp.swift
 
 ***Home Page***
 
